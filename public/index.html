@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.css">
+	<link rel="stylesheet" href="/stylesheets/bs-theme.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<title>MusicDB</title>
+</head>
+
+<body>
+	<div class="content">
+		<div class="page-title">
+			<h2>MusicDB - Artists & Genres</h2>
+		</div>
+		<section class="main col-md-8 col-md-offset-2" id="links">
+
+			<div class="navbar">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="/artists.html">Artists</a>
+					</li>
+					<li>
+						<a href="/genres.html">Genres</a>
+					</li>
+					<li>
+						<a href="/index.html">Links</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="list">
+				<div class="edit">
+					<div class="form-group col-md-4">
+						<label for="">Muzician</label>
+						<select name="" id="" v-model="artist">
+							<option v-for="artist in artists" v-bind:value="artist.mId">{{artist.nume}}</option>
+						</select>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="">Still</label>
+						<select name="" id="" v-model="genre">
+							<option v-for="genre in genres" v-bind:value="genre.smId">{{genre.nume}}</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<button type="button" class="btn btn-success btn-sm" v-on:click="saveLink()">Save</button>
+						<button type="button" class="btn btn-info btn-sm" v-on:click="cancelEdit()">Cancel</button>
+					</div>
+
+				</div>
+				<table class="table table-striped table-hover ">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Muzician</th>
+							<th>Nume de Scena</th>
+							<th>An Nastere</th>
+							<th>Stil</th>
+							<th>Origine</th>
+							<th>An Aparitie</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="link in links">
+							<td>{{link.msId}}</td>
+							<td>{{link.artist}}</td>
+							<td>{{link.nume_scena}}</td>
+							<td>{{link.an_nastere}}</td>
+							<td>{{link.stil}}</td>
+							<td>{{link.origine}}</td>
+							<td>{{link.anAparitie}}</td>
+							<td>
+
+								<button class="btn btn-warning btn-xs" v-on:click="deleteLink(link.msId)">Unlink</button>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</section>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+ crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/main.js"></script>
+
+</html>
